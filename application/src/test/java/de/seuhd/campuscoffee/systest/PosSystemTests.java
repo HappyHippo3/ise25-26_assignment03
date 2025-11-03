@@ -73,11 +73,11 @@ public class PosSystemTests extends AbstractSysTest {
         Pos retrievedPos = posDtoMapper.toDomain(TestUtils.retrievePosById(posToUpdate.getId()));
 
         // Break test case
-        posToUpdate.setName("THIS STRING BREAKS THE TEST");
+        //posToUpdate.setName("THIS STRING BREAKS THE TEST");
 
         assertThat(retrievedPos)
                 .usingRecursiveComparison()
-                .ignoringFields("createdAt", "updatedAt", "name") // Ignore name field to avoid test breakage
+                .ignoringFields("createdAt", "updatedAt")
                 .isEqualTo(posToUpdate);
     }
 }
